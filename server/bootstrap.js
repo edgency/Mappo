@@ -4,6 +4,11 @@ Meteor.startup(function () {
 	  return Features.find(); // everything
 	});
 	
+	Logs = new Meteor.Collection("logs");
+	Meteor.publish("logs", function () {
+	  return Messages.find(); // everything
+	});
+	
 	Messages = new Meteor.Collection("messages");
 	Meteor.publish("messages", function () {
 	  return Messages.find(); // everything

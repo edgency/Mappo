@@ -40,18 +40,21 @@ Cat.define('mongo-collection', function(context, options) {
 					var layer = L.GeoJSON.geometryToLayer(feature);
 					
 					if ( layer instanceof L.Marker ){
-						var icon = L.icon({
-							iconUrl: options.icons(feature.properties),
-							iconSize: [20, 20]
-						});
-						layer.feature = feature;
-						layer.setIcon( icon );
-						layer.bindPopup( JSON.stringify( feature.properties ) );
-						layer.on({
-					        mouseover: highlightFeature,
-					        mouseout: resetHighlight,
-					        click: zoomToFeature
-					    });
+						if (feature.properties){
+							var icon = L.icon({
+								iconUrl: options.icons(feature.properties),
+								iconSize: [20, 20]
+							});
+							layer.feature = feature;
+							layer.setIcon( icon );
+							layer.bindPopup( JSON.stringify( feature.properties ) );
+							layer.on({
+						        mouseover: highlightFeature,
+						        mouseout: resetHighlight,
+						        click: zoomToFeature
+						    });							
+						}
+
 					}
 					
 					

@@ -4,6 +4,7 @@
 
 Cat.define('menu', function(context) {
 
+
 	Template.menu.events({
 		'click .menu-item': function(event){
 			var elem = $( event.srcElement );

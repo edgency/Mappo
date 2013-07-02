@@ -2,6 +2,7 @@
   "packages": {
     "leaflet": {},
     "jquery-ui": {},
-    "jquery-ui-bootstrap": {}
+    "jquery-ui-bootstrap": {},
+    "event-hooks": {}
   }
 }

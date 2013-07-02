@@ -5,6 +5,24 @@ Settings = {
     mission: ''
 };
 
+var Logger = function(){
+	Meteor.subscribe('logs')
+	var Logs = new Meteor.Collection( 'logs');
+	function writeLog(type, msg){
+		Logs.insert({
+			time: (new Date).getTime(),
+			text:msg,
+			kind:type
+		});
+	};
+	this.i = function(msg){
+		return writeLog('info', msg);
+	};
+};
+
+Log = new Logger;
+
+
 /**
  * @return global settings
  */

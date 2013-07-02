@@ -21,11 +21,9 @@ Cat.define('map-viewer', function(context) {
 
 				var map = L.map(mapId, {
 					center: new L.LatLng(46, 11),
-					zoom: 8
+					zoom: 8,
+					attributionControl: true
 				});
-				L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-					attribution: '&amp;copy; &lt;a href="http://osm.org/copyright"&gt;OpenStreetMap&lt;/a&gt; contributors'
-				}).addTo(map);
 
 				map._onResize();
 

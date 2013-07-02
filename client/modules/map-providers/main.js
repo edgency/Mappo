@@ -12,11 +12,11 @@ Cat.define('map-providers', function(context) {
 			"OpenStreetMap Black and White": L.TileLayer.provider('OpenStreetMap.BlackAndWhite'),
 			"Thunderforest OpenCycleMap": L.TileLayer.provider('Thunderforest.OpenCycleMap'),
 			"Thunderforest Transport": L.TileLayer.provider('Thunderforest.Transport'),
-			"Thunderforest Landscape": L.TileLayer.provider('Thunderforest.Landscape'),
+			"Thunderforest Landscape": L.TileLayer.provider('Thunderforest.Landscape') /*,
 			"MapQuest OSM": L.TileLayer.provider('MapQuestOpen.OSM'),
 			"MapQuest Aerial": L.TileLayer.provider('MapQuestOpen.Aerial'),
 			"MapBox Simple": L.TileLayer.provider('MapBox.Simple'),
-			"MapBox Streets": L.TileLayer.provider('MapBox.Streets'),
+			"MapBox Streets": L.TileLayer.provider('MapBox.Streets') ,
 			"MapBox Light": L.TileLayer.provider('MapBox.Light'),
 			"MapBox Lacquer": L.TileLayer.provider('MapBox.Lacquer'),
 			"MapBox Warden": L.TileLayer.provider('MapBox.Warden'),
@@ -28,7 +28,7 @@ Cat.define('map-providers', function(context) {
 			"Esri WorldTopoMap": L.TileLayer.provider('Esri.WorldTopoMap'),
 			"Esri WorldImagery": L.TileLayer.provider('Esri.WorldImagery'),
 			"Esri OceanBasemap": L.TileLayer.provider('Esri.OceanBasemap'),
-			"Esri NatGeoWorldMap": L.TileLayer.provider('Esri.NatGeoWorldMap')
+			"Esri NatGeoWorldMap": L.TileLayer.provider('Esri.NatGeoWorldMap')*/
 		};
 
 		return {
