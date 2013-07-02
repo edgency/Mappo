@@ -1,23 +1,7 @@
 // on document ready	
 Meteor.startup(function() {
 
-	var app = Cat.intc(
-		       { name:'page' },
-		       Cat.intc(
-		       	  { name:'menu' },
-		          Cat.intc(
-			         { name:'content' },
-			         Cat.dot(
-						{ name:'chat'},
-			         	{ name:'map-viewer' }
-			         )
-			      )
-	  		   )
-		     );
-	Cat.start( app ).render();
-
-     // create the structure of Mappo app
-	/* var app = Cat.intc( 
+    var map = Cat.intc( 
 		          { name:'map-viewer' },
 		          Cat.dot(
 			         { name:'map-providers' },
@@ -54,8 +38,22 @@ Meteor.startup(function() {
 					     ['create', 'show', 'hide']
 				     )
 			      )
-			   );*/
-     // start the app and render it in body element
-     // Cat.start( app ).render($('body'));
+			   );
+
+	var app = Cat.intc(
+		       { name:'page' },
+		       Cat.intc(
+		       	  { name:'menu' },
+		          Cat.intc(
+			         { name:'content' },
+			         Cat.dot(
+						{ name:'chat'},
+			         	map
+			         )
+			      )
+	  		   )
+		     );
+	Cat.start( app ).render();
+
 
 });
