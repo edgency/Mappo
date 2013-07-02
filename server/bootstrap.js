@@ -4,6 +4,11 @@ Meteor.startup(function () {
 	  return Features.find(); // everything
 	});
 	
+	Messages = new Meteor.Collection("messages");
+	Meteor.publish("messages", function () {
+	  return Messages.find(); // everything
+	});
+	
 	// load waypoints from OSM
 	Waypoints = new Meteor.Collection("waypoints");
 	Meteor.publish("waypoints", function () {

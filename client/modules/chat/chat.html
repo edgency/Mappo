@@ -1,0 +1,50 @@
+<template name="chatBox">
+	<div class="row-fluid">
+    	<div class="span12">
+           {{> messages}}
+		   {{> messageBox}}
+        </div>
+    </div>
+</template>
+
+
+<template name="messages">
+	<div class="messages box">
+        {{#unless noMessages}}
+           {{#each messages}}
+				{{> message}}
+           {{/each}}
+        {{/unless}}
+            
+        {{#if noMessages}}
+           <span class="loading">
+               Please wait while we are loading messages...
+           </span>
+        {{/if}}
+	</div>
+</template>
+
+<template name="messageBox">
+    <div class="row-fluid" style="margin:5px;">
+        <div class="span10">
+        	<input type="text" id="messageText" style="width:100%" placeholder="Type your message here..." />
+        </div>
+        <div class="span2">
+            <button id="submitBtn" class="btn btn-primary">
+                Send
+            </button>
+        </div>
+    </div>
+</template>
+
+<template name="message">
+	<div class="message">
+		<span class="username">{{displayName}}</span>: 
+		<span class="msg-text">
+			{{text}}
+		</span>
+		<span class="time">
+			{{prettyDate time}}
+		</span>
+	</div>
+</template>

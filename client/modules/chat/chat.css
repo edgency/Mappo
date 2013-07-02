@@ -1,0 +1,65 @@
+.input {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.box {
+	padding: 2px;
+    border: 1px solid rgb(200,200,200);
+			border-radius: 3px;
+	-webkit-border-radius: 3px;
+    
+    overflow: auto;
+}
+.box .loading {
+    text-align: center;
+    font-size: small;
+    color: rgb(153, 153, 153);   
+    padding: 5px;
+}
+.chat-container {
+	min-height: 280px;
+    padding: 20px;
+}
+.chat-container .login-prompt {
+	font-size: 35px;
+	width: auto;
+	margin: auto;
+	text-align: center;
+	padding-top: 124px;
+
+	line-height: 40px;
+}
+.messages {
+	overflow: auto;
+	height: 230px;
+}
+.messages .message {
+			transition: background-color 0.25s;
+	-webkit-transition: background-color 0.25s;
+}
+.messages .message:hover {
+	background-color: rgba(0, 153, 213, 0.1);
+}
+.messages .message .username {
+	font-weight: bold;
+}
+.messages .message .msg-text {
+    color: black;
+}
+.messages .message .msg-text .server-message {
+	color: red;
+}
+.messages .message .time {
+	float: right;
+	font-style: italic;
+
+	opacity: 0.1;
+			transition: opacity 0.25s;
+	-webkit-transition: opacity 0.25s;
+}
+.messages .message:first-child .time {
+    opacity: 0.5;
+}
+.messages .message:hover .time {
+	opacity: 1.0;
+}

@@ -1,0 +1,66 @@
+<template name="home">
+	
+{{#if currentUser}}
+	<p>
+		Welcome, {{firstname}}
+	</p>
+	<div id="map" class="map" >
+		{{loadMap}}
+	</div>
+	<div id="chat" style="margin:10px" >
+		{{loadChat}}
+	</div>
+	
+{{else}}
+    <div class="jumbotron">
+      <h1>{{g 'motto'}}</h1>
+      <p class="lead">
+	  Mappo is a new way to build geo apps. Using next generation technologies, it has never been easier to create real time gis.
+	  Give a try to this demo to see how to work on maps collaboratively with Mappo.
+	  </p>
+      {{loginButtons}}
+    </div>
+
+    <hr>	
+	<div class="row-fluid marketing">
+        <div class="span6">
+          <h4>Real time updates</h4>
+          <p>You can track moving objects on a map in real time.</p>
+
+          <h4>Smart clients</h4>
+          <p>Maps are built dynamically on the client side. All the power of Javascript to create for your users the best interactive experience.</p>
+
+          <h4>Mobile</h4>
+          <p>You can have any kind of client: browser, smartphone or tablet.</p>
+        </div>
+
+        <div class="span6">
+          <h4>Integration with OpenStreetMap</h4>
+          <p></p>
+
+          <h4>Tear, zoom, link.</h4>
+          <p>Web applications are built in a truly compositional way and you do not have to worry about concurrency and asynchrony anymore.</p>
+
+          <h4>GeoJSon</h4>
+          <p>No more complicated xml from mapservers. Geometries are just GeoJSon files and we use the advanced spatial capabilities of MongoDB to perform spatial queries.</p>
+        </div>
+
+          <h4>Open source</h4>
+          <p>Mappo is an open source project. Download the source code <a href="http://github.com/mstn/Mappo">here</a></p>
+        </div>
+      </div>
+    <div class="row">
+		{{g 'project'}} is developed with:
+		<p>
+			<img width="50px" src="meteor-logo.png" title="Meteor"/>
+			<img width="50px" src="mongodb.png" title="MongoDb"/>
+			<img width="50px" src="leaflet.png" title="Leaflet"/>
+			<img width="50px" src="osm.png" title="OpenStreetMap"/>
+		</p>
+	</div>	
+{{/if}}
+	
+
+</template>
+
+
