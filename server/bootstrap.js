@@ -1,4 +1,27 @@
 Meteor.startup(function () {
+	
+	Points = new Meteor.Collection("tracked-points");
+		Meteor.publish("tracked-points", function () {
+		  return Points.find(); // everything
+		});
+
+		Meteor.methods({
+		  track: function (trackerId, lng, lat) {
+		    var point = {
+		        "type": "Feature",
+		        "properties":{
+			        "trackerId": trackerId
+		        },
+		        "geometry": {
+		            "type": "Point",
+		            "coordinates": [lng, lat]
+		        },
+		    };
+		    Points.insert(point);
+		  }
+		});
+	
+	
 	Features = new Meteor.Collection("features");
 	Meteor.publish("features", function () {
 	  return Features.find(); // everything

@@ -11,6 +11,15 @@ Cat.define('content', function(context) {
 		return  Session.get('current') === 'contact';
     };
 
+    Template.home.events({
+		'click a[data-save]': function(){
+			var value = $('#inputTextField').val();
+			if ( value != ''){
+				context.trigger('track', value);
+			}
+		}
+	});
+
   	Template.home.loadChat = function () {
 	  Meteor.defer(function () {
 		if ( $('#chat').children().length === 0){
@@ -51,5 +60,6 @@ Cat.define('content', function(context) {
 		'chat-ready': function(fragment){
 			$('#chat').append( Meteor.render(fragment) );
 		}
+		
 	};
 });

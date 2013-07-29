@@ -16,9 +16,11 @@ Meteor.startup(function() {
 
     var map = Cat.intc( 
 		          { name:'map-viewer' },
-		          Cat.dot(
-			         { name:'map-providers' },
-			         Cat.trace(
+		          Cat.intc(
+				     { name:'tracker', collection:'tracked-points'},
+				     Cat.dot(
+			         	{ name:'map-providers' },
+			         	Cat.trace(
 			             Cat.dot(
 				           Cat.dot(
 					         { name:'draw' },
@@ -47,10 +49,12 @@ Meteor.startup(function() {
 					         },
 					         { name:'info-control' }
 					        )
-					     ),
-					     ['create', 'show', 'hide']
+					      ),
+					      ['create', 'show', 'hide']
+				         )
 				     )
-			      )
+			      
+			    )
 			   );
 
 	var app = Cat.intc(
