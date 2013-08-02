@@ -1,3 +1,9 @@
+/* Meteor.absoluteUrl({
+	rootUrl:'http://37.187.52.209:8000/'
+}); */
+
+Meteor.absoluteUrl.defaultOptions.rootUrl = "http://37.187.52.209/";
+
 Meteor.startup(function () {
 	
 	Points = new Meteor.Collection("tracked-points");
