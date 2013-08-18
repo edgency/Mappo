@@ -1,0 +1,13 @@
+<template name="notes">
+	<div id="wrapper">
+	    <div id="content">
+		{{#each notes}}
+			{{#with this}}
+				<div class="alert">{{text}}</div>
+			{{/with}}
+		{{/each}}
+	    </div>
+	</div>
+	<a id="scrollUp" href="#">up</a>
+	<a id="scrollDown" href="#">down</a>
+</template>

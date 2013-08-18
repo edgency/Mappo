@@ -1,0 +1,81 @@
+<template name="landing">
+  <div id="title">
+   		Mappo
+   </div>
+   <div id="version">
+   		preview 0.1
+   </div>
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="mapscreenshot.png" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Maps made easy!</h1>
+              <p>Mappo is a new way to build geo apps. Using next generation technologies, it has never been easier to create real time gis. Give a try to this demo to see how to work on maps collaboratively with Mappo.</p>
+              <p><!--<a class="btn btn-large btn-primary">Login with Facebook</a>-->
+					{{loginButtons}}
+			  </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- carousel -->
+
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+
+      <!-- START THE FEATURETTES -->
+
+      <div class="featurette">
+        <img class="featurette-image pull-right" src="clock-icon.png">
+        <h2 class="featurette-heading">Real time updates. <span class="text-muted">It'll blow your mind.</span></h2>
+        <p class="lead">You can track moving objects on a map in real time or display sensor values as they change. There is a great variety of scenarios: from public transport to the Internet of Things.</p>
+      </div>
+
+
+      <div class="featurette">
+        <img class="featurette-image  pull-left" src="pin-map-icon-2.png">
+        <h2 class="featurette-heading">OpenStreetMap. <span class="text-muted">Open your data.</span></h2>
+        <p class="lead">OSM geometries are converted into GeoJSon easily. Thus, tons of open data are available for Mappo.</p>
+      </div>
+
+
+      <div class="featurette">
+        <img class="featurette-image pull-right" src="europe-icon.png">
+        <h2 class="featurette-heading">GeoJSon. <span class="text-muted">Yeah, it is that simple!</span></h2>
+        <p class="lead">No more complicated xml from mapservers. Geometries are just GeoJSon files and we use the advanced spatial capabilities of MongoDB to perform spatial queries.</p>
+      </div>
+
+      <div class="featurette">
+        <img class="featurette-image  pull-left" src="iphone-5-icon.png">
+        <h2 class="featurette-heading">Mobile. <span class="text-muted">Data on the wire.</span></h2>
+        <p class="lead">You can have any kind of client: browsers, smartphones or tablets. Data are transmitted through REST apis or sockets. Maps are built dynamically on the client side. All the power of Javascript to create for your users the best interactive experience.</p>
+      </div>
+
+      <div class="featurette">
+        <img class="featurette-image pull-right" src="heart-icon.png">
+        <h2 class="featurette-heading">Open source. <span class="text-muted">Because we love you!</span></h2>
+        <p class="lead">Mappo is an open source project. Download the source code <a href="http://github/mstn/Mappo">here</a>.</p>
+      </div>
+
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2013 Mappo. &middot; </p>
+      </footer>
+
+    </div><!-- /.container -->	
+</template>

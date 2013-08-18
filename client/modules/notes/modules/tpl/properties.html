@@ -1,0 +1,19 @@
+<template name="properties">	
+	
+	{{#if feature}}
+	{{#with feature}}
+	<p>
+		<img src="{{icon}}"/> {{properties.name}}
+	</p>
+	<table class="table table-condensed">
+	  
+	    <tr><td>Lat</td><td>{{geometry.coordinates.[0]}}</td></tr>
+	    <tr><td>Lng</td><td>{{geometry.coordinates.[1]}}</td></tr>
+	  
+	</table>
+	{{/with}}
+	{{else}}
+	    No feature selected
+	{{/if}}
+	
+</template>

@@ -92,7 +92,12 @@
                     var nInstance = n.builder( context, nOpts );
                     var mInstance = m.builder( new Context( nInstance ), mOpts );
                     return _.extend({}, mInstance);            
-                }
+                },
+				rename: function( newName ){
+					modules[ newName ] = modules[name];
+					delete modules.name;
+					name = newName;
+				}
             };
               
         },
@@ -177,7 +182,12 @@
                   ctx.listen( _.keys(nInstance), nInstance );
                   ctx.listen( _.keys(mInstance), mInstance );
                   return dot;
-              }
+              },
+			  rename: function( newName ){
+				modules[ newName ] = modules[name];
+				delete modules.name;
+				name = newName;
+			  }
           };
         },
       

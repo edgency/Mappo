@@ -6,12 +6,12 @@
 insecure
 preserve-inputs
 backbone
-bootstrap
 jquery
 http
 leaflet
-jquery-ui-bootstrap
 jquery-ui
 accounts-facebook
 accounts-ui
 event-hooks
+bootstrap-3
+jquery-ui-bootstrap

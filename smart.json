@@ -3,6 +3,7 @@
     "leaflet": {},
     "jquery-ui": {},
     "jquery-ui-bootstrap": {},
-    "event-hooks": {}
+    "event-hooks": {},
+    "bootstrap-3": {}
   }
 }

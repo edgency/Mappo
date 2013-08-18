@@ -5,6 +5,46 @@ Meteor.startup(function() {
 	// see https://github.com/bevanhunt/meteor-leaflet
 	L.Icon.Default.imagePath = 'packages/leaflet/images';
 	
+	var landing = Cat.start( { name:'landing-page'} );
+	var map = Cat.start( 
+				Cat.seq( 
+		          { name:'map-viewer' }, 
+		          Cat.dot(
+					{ name:'map-providers'},
+		          	Cat.dot(
+			          { name:'toolbar' },
+			          Cat.trace(
+			            Cat.dot(
+				          Cat.trace(
+					        Cat.dot(
+								{ name:'mongo-collection',
+							  	  collection:'features',
+							      icons: Mappo.iconMap },
+						     	{ name:'search'} ),
+						    ['create']
+					      ),
+						  { name:'notes' }
+				        ), 
+				        ['show', 'hide'] 
+				       )		
+			      	)
+				  )
+
+			     ));
+	Deps.autorun(
+	  function () {
+	    var page = Meteor.userId() == null ? landing.html() : map.html();
+	    $('body').empty().append(page);
+	    if (  Meteor.userId() != null ){
+			map.show();
+		}
+	    
+	});
+	
+	
+	
+
+	
 	Hooks.init();
 	Hooks.onLoggedIn = function () {
 		var user = Meteor.user()._id + '(' + Meteor.user().profile.name + ')';
@@ -14,63 +54,8 @@ Meteor.startup(function() {
 	    Log.i( userId + ' has logged out.');
 	}
 
-    var map = Cat.intc( 
-		          { name:'map-viewer' },
-		          Cat.intc(
-				     { name:'tracker', collection:'tracked-points'},
-				     Cat.dot(
-			         	{ name:'map-providers' },
-			         	Cat.trace(
-			             Cat.dot(
-				           Cat.dot(
-					         { name:'draw' },
-					         { name:'search' }
-					       ),
-					       Cat.dot(
-					       	 { name:'mongo-collection',
-					           collection:'features',
-					           icons: function( node ){
-								  if ( node.tourism === 'alpine_hut'){
-									return 'hut.png';
-								  } else if ( node.amenity === 'shelter'){
-									return 'cabin-2.png';
-								  } else if ( node.natural === 'peak' ){
-									return 'mountains.png';
-								  } else if ( node.mountain_pass === 'yes'){
-									return 'mountain-pass.png';
-							      } else if ( node.amenity === 'drinking_water'){
-									return 'drinkingwater.png';
-								  } else if ( node.tourism === 'viewpoint'){
-									return 'beautifulview.png';
-								  } else {
-									return 'unknown.png';
-								  }
-							    }
-					         },
-					         { name:'info-control' }
-					        )
-					      ),
-					      ['create', 'show', 'hide']
-				         )
-				     )
-			      
-			    )
-			   );
-
-	var app = Cat.intc(
-		       { name:'page' },
-		       Cat.intc(
-		       	  { name:'menu' },
-		          Cat.intc(
-			         { name:'content' },
-			         Cat.dot(
-						{ name:'chat'},
-			         	map
-			         )
-			      )
-	  		   )
-		     );
-	Cat.start( app ).render();
+    
+	
 
 
 });

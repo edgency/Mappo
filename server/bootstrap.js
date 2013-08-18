@@ -2,9 +2,9 @@
 	rootUrl:'http://37.187.52.209:8000/'
 }); */
 
-Meteor.absoluteUrl.defaultOptions.rootUrl = "http://37.187.52.209/";
 
 Meteor.startup(function () {
+	
 	
 	Points = new Meteor.Collection("tracked-points");
 		Meteor.publish("tracked-points", function () {
@@ -31,6 +31,11 @@ Meteor.startup(function () {
 	Features = new Meteor.Collection("features");
 	Meteor.publish("features", function () {
 	  return Features.find(); // everything
+	});
+	
+	Notes = new Meteor.Collection("notes");
+	Meteor.publish("notes", function () {
+	  return Notes.find(); // everything
 	});
 	
 	Logs = new Meteor.Collection("logs");

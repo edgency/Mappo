@@ -5,7 +5,7 @@
 Cat.define('mongo-collection', function(context, options) {
 	function highlightFeature(e) {
 	    var layer = e.target;
-	    context.trigger('show', layer.feature);
+	    context.trigger('show', layer.feature._id);
 	}
 	function resetHighlight(e) {
 	    group.resetStyle(e.target);
@@ -47,7 +47,7 @@ Cat.define('mongo-collection', function(context, options) {
 							});
 							layer.feature = feature;
 							layer.setIcon( icon );
-							layer.bindPopup( JSON.stringify( feature.properties ) );
+							// layer.bindPopup( JSON.stringify( feature.properties ) );
 							layer.on({
 						        mouseover: highlightFeature,
 						        mouseout: resetHighlight,

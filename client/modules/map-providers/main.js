@@ -34,9 +34,9 @@ Cat.define('map-providers', function(context) {
 		return {
 			ready: function(map) {
 				map.addLayer(defaultLayer);
-				map.addControl(new L.Control.Layers(baseLayers, '', {
+				/* map.addControl(new L.Control.Layers(baseLayers, '', {
 					collapsed: true
-				}));
+				}));*/
 			}
 		};
 	});

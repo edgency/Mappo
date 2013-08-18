@@ -2,14 +2,15 @@
   "meteor": {
     "git": "https://github.com/meteor/meteor.git",
     "branch": "master",
-    "commit": "9bb2b5447e845c4f483df5e9b42a2c1de5ab909b"
+    "commit": "2e78d0d110443ac6fb9471e6be1c136f15f03fd2"
   },
   "dependencies": {
     "basePackages": {
       "leaflet": {},
       "jquery-ui": {},
       "jquery-ui-bootstrap": {},
-      "event-hooks": {}
+      "event-hooks": {},
+      "bootstrap-3": {}
     },
     "packages": {
       "leaflet": {
@@ -31,6 +32,11 @@
         "git": "https://github.com/BenjaminRH/meteor-event-hooks.git",
         "tag": "v1.4.0",
         "commit": "8d0daf1b84622104d3bcdd99fcf791cd08d3a222"
+      },
+      "bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
+        "tag": "v0.2.8",
+        "commit": "8026f0beaa0274849adfcf8c53d919216b5e06ba"
       }
     }
   }
