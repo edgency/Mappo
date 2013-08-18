@@ -6,7 +6,7 @@
     "bootstrap-3": {},
     "moment": {},
     "leaflet":{
-	   "path":"/Users/marco/Work/Mappo/meteor-leaflet"
+	   "path":"/home/meteor/meteor-leaflet"
     }
   }
 }
