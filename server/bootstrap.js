@@ -6,7 +6,7 @@
 Meteor.startup(function () {
 	
 	
-	Points = new Meteor.Collection("tracked-points");
+	/* Points = new Meteor.Collection("tracked-points");
 		Meteor.publish("tracked-points", function () {
 		  return Points.find(); // everything
 		});
@@ -25,7 +25,7 @@ Meteor.startup(function () {
 		    };
 		    Points.insert(point);
 		  }
-		});
+		}); */
 	
 	
 	Features = new Meteor.Collection("features");

@@ -4,36 +4,58 @@
  */
 
 Cat.define('map-providers', function(context) {
-		Leaflet.load('providers', providerLeafletPlugin);
-		var defaultLayer = L.TileLayer.provider('OpenStreetMap.Mapnik');
 		var baseLayers = {
-			"OpenStreetMap Default": defaultLayer,
-			"OpenStreetMap German Style": L.TileLayer.provider('OpenStreetMap.DE'),
-			"OpenStreetMap Black and White": L.TileLayer.provider('OpenStreetMap.BlackAndWhite'),
-			"Thunderforest OpenCycleMap": L.TileLayer.provider('Thunderforest.OpenCycleMap'),
-			"Thunderforest Transport": L.TileLayer.provider('Thunderforest.Transport'),
-			"Thunderforest Landscape": L.TileLayer.provider('Thunderforest.Landscape') /*,
-			"MapQuest OSM": L.TileLayer.provider('MapQuestOpen.OSM'),
-			"MapQuest Aerial": L.TileLayer.provider('MapQuestOpen.Aerial'),
-			"MapBox Simple": L.TileLayer.provider('MapBox.Simple'),
-			"MapBox Streets": L.TileLayer.provider('MapBox.Streets') ,
-			"MapBox Light": L.TileLayer.provider('MapBox.Light'),
-			"MapBox Lacquer": L.TileLayer.provider('MapBox.Lacquer'),
-			"MapBox Warden": L.TileLayer.provider('MapBox.Warden'),
-			"Stamen Toner": L.TileLayer.provider('Stamen.Toner'),
-			"Stamen Terrain": L.TileLayer.provider('Stamen.Terrain'),
-			"Stamen Watercolor": L.TileLayer.provider('Stamen.Watercolor'),
-			"Esri WorldStreetMap": L.TileLayer.provider('Esri.WorldStreetMap'),
-			"Esri DeLorme": L.TileLayer.provider('Esri.DeLorme'),
-			"Esri WorldTopoMap": L.TileLayer.provider('Esri.WorldTopoMap'),
-			"Esri WorldImagery": L.TileLayer.provider('Esri.WorldImagery'),
-			"Esri OceanBasemap": L.TileLayer.provider('Esri.OceanBasemap'),
-			"Esri NatGeoWorldMap": L.TileLayer.provider('Esri.NatGeoWorldMap')*/
-		};
+				// 'OpenStreetMap Default': osm,
+				'OpenStreetMap German Style': L.tileLayer.provider('OpenStreetMap.DE'),
+				'OpenStreetMap Black and White': L.tileLayer.provider('OpenStreetMap.BlackAndWhite'),
+				'Thunderforest OpenCycleMap': L.tileLayer.provider('Thunderforest.OpenCycleMap'),
+				'Thunderforest Transport': L.tileLayer.provider('Thunderforest.Transport'),
+				'Thunderforest Landscape': L.tileLayer.provider('Thunderforest.Landscape'),
+				'MapQuest OSM': L.tileLayer.provider('MapQuestOpen.OSM'),
+				'MapQuest Aerial': L.tileLayer.provider('MapQuestOpen.Aerial'),
+				'MapBox Example': L.tileLayer.provider('MapBox.examples.map-zr0njcqy'),
+				'Stamen Toner': L.tileLayer.provider('Stamen.Toner'),
+				'Stamen Terrain': L.tileLayer.provider('Stamen.Terrain'),
+				'Stamen Watercolor': L.tileLayer.provider('Stamen.Watercolor'),
+				'Esri WorldStreetMap': L.tileLayer.provider('Esri.WorldStreetMap'),
+				'Esri DeLorme': L.tileLayer.provider('Esri.DeLorme'),
+				'Esri WorldTopoMap': L.tileLayer.provider('Esri.WorldTopoMap'),
+				'Esri WorldImagery': L.tileLayer.provider('Esri.WorldImagery'),
+				'Esri WorldTerrain': L.tileLayer.provider('Esri.WorldTerrain'),
+				'Esri WorldShadedRelief': L.tileLayer.provider('Esri.WorldShadedRelief'),
+				// uncomment these lines if your screen is really large
+			//	'Esri WorldPhysical': L.tileLayer.provider('Esri.WorldPhysical'),
+			//	'Esri OceanBasemap': L.tileLayer.provider('Esri.OceanBasemap'),
+			//	'Esri NatGeoWorldMap': L.tileLayer.provider('Esri.NatGeoWorldMap'),
+			//	'Esri WorldGrayCanvas': L.tileLayer.provider('Esri.WorldGrayCanvas'),
+				'Nokia Normal Day': L.tileLayer.provider('Nokia.normalDay'),
+			//	'Nokia Normal Day Grey': L.tileLayer.provider('Nokia.normalGreyDay'),
+			//	'Nokia Satellite': L.tileLayer.provider('Nokia.satelliteNoLabelsDay'),
+			//	'Nokia Satellite (Labeled)': L.tileLayer.provider('Nokia.satelliteYesLabelsDay'),
+				'Nokia Terrain': L.tileLayer.provider('Nokia.terrainDay'),
+				'Acetate': L.tileLayer.provider('Acetate')
+			};
+
+			var overlayLayers = {
+				'OpenSeaMap': L.tileLayer.provider('OpenSeaMap'),
+				'OpenWeatherMap Clouds': L.tileLayer.provider('OpenWeatherMap.Clouds'),
+				'OpenWeatherMap CloudsClassic': L.tileLayer.provider('OpenWeatherMap.CloudsClassic'),
+				'OpenWeatherMap Precipitation': L.tileLayer.provider('OpenWeatherMap.Precipitation'),
+				// uncomment these lines if your screen is really large
+				//'OpenWeatherMap PrecipitationClassic': L.tileLayer.provider('OpenWeatherMap.PrecipitationClassic'),
+				//'OpenWeatherMap Rain': L.tileLayer.provider('OpenWeatherMap.Rain'),
+				//'OpenWeatherMap RainClassic': L.tileLayer.provider('OpenWeatherMap.RainClassic'),
+				//'OpenWeatherMap Pressure': L.tileLayer.provider('OpenWeatherMap.Pressure'),
+				//'OpenWeatherMap PressureContour': L.tileLayer.provider('OpenWeatherMap.PressureContour'),
+				//'OpenWeatherMap Wind': L.tileLayer.provider('OpenWeatherMap.Wind'),
+				//'OpenWeatherMap Temperature': L.tileLayer.provider('OpenWeatherMap.Temperature'),
+				'OpenWeatherMap Snow': L.tileLayer.provider('OpenWeatherMap.Snow')
+			};
+
 
 		return {
 			ready: function(map) {
-				map.addLayer(defaultLayer);
+				map.addLayer(L.tileLayer.provider('OpenStreetMap.DE'));
 				/* map.addControl(new L.Control.Layers(baseLayers, '', {
 					collapsed: true
 				}));*/

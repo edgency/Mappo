@@ -11,23 +11,25 @@ Meteor.startup(function() {
 		          { name:'map-viewer' }, 
 		          Cat.dot(
 					{ name:'map-providers'},
-		          	Cat.dot(
-			          { name:'toolbar' },
-			          Cat.trace(
+			        Cat.trace(
 			            Cat.dot(
 				          Cat.trace(
 					        Cat.dot(
 								{ name:'mongo-collection',
 							  	  collection:'features',
 							      icons: Mappo.iconMap },
-						     	{ name:'search'} ),
+							    Cat.dot(
+									{ name:'toolbar'},
+									{ name:'draw'}
+								)
+						     	
+						    ),
 						    ['create']
 					      ),
 						  { name:'notes' }
 				        ), 
 				        ['show', 'hide'] 
-				       )		
-			      	)
+				    )		
 				  )
 
 			     ));
@@ -41,14 +43,14 @@ Meteor.startup(function() {
 	    
 	});
 
-	Hooks.init();
+	/* Hooks.init();
 	Hooks.onLoggedIn = function () {
 		var user = Meteor.user()._id + '(' + Meteor.user().profile.name + ')';
 	    Log.i( user + ' has logged in.');
 	}
 	Hooks.onLoggedOut = function (userId) {
 	    Log.i( userId + ' has logged out.');
-	}
+	}*/
 
     
 	

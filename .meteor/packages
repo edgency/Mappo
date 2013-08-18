@@ -5,13 +5,13 @@
 
 insecure
 preserve-inputs
-backbone
 jquery
 http
-leaflet
-jquery-ui
-accounts-facebook
-accounts-ui
-event-hooks
-bootstrap-3
 jquery-ui-bootstrap
+jquery-ui
+standard-app-packages
+moment
+accounts-base
+bootstrap-3
+leaflet
+accounts-facebook

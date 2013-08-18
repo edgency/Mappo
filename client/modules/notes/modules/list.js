@@ -26,7 +26,7 @@ Cat.define('list', function(context) {
 	};
 	
 	Template.notes.rendered = function(){
-		var step = 25;
+		var step = 15;
 		var scrolling = false;
 
 		// Wire up events for the 'scrollUp' link:

@@ -44,17 +44,17 @@ Cat.define('search', function(context) {
 		           });		
 	};
 	
-
-    
-    var fragment = Meteor.render(
-	  function () {
-	    return Template.search( );
-	});
+	
+	function render(){
+		return Meteor.render(
+		  function () {
+		    return Template.search( );
+		});
+	}
 
 	return {
-		ready: function(map) {
-            var options = {position: 'topright'};
-			map.addPlugin( fragment, options);
+		ready: function( container ) {
+			container.add( render() );
 		}
 
 	};

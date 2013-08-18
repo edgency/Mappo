@@ -1,9 +1,12 @@
 {
   "packages": {
-    "leaflet": {},
     "jquery-ui": {},
     "jquery-ui-bootstrap": {},
     "event-hooks": {},
-    "bootstrap-3": {}
+    "bootstrap-3": {},
+    "moment": {},
+    "leaflet":{
+	   "path":"/Users/marco/Work/Mappo/meteor-leaflet"
+    }
   }
 }
