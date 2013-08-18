@@ -41,9 +41,3 @@ Handlebars.registerHelper('prettyDate', function(time){
 	return moment(parseInt(time)).fromNow();
 });
 
-Template.page.helpers({
-	
-
-
-	
-});

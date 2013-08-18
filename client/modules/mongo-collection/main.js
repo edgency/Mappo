@@ -11,14 +11,15 @@ Cat.define('mongo-collection', function(context, options) {
 	    group.resetStyle(e.target);
 	    context.trigger('hide');
 	}
-	function zoomToFeature(e) {
-	    // map.fitBounds(e.target.getBounds());
+	function selectFeature(e) {
+	    var layer = e.target;
+	    context.trigger('show', layer.feature._id);
 	}
 	function onEachFeature(feature, layer) {
 	    layer.on({
-	        mouseover: highlightFeature,
-	        mouseout: resetHighlight,
-	        click: zoomToFeature
+	        // mouseover: highlightFeature,
+	        // mouseout: resetHighlight,
+	        click: selectFeature
 	    });
 	}
 	var collectionName = options.collection;
@@ -49,9 +50,9 @@ Cat.define('mongo-collection', function(context, options) {
 							layer.setIcon( icon );
 							// layer.bindPopup( JSON.stringify( feature.properties ) );
 							layer.on({
-						        mouseover: highlightFeature,
-						        mouseout: resetHighlight,
-						        click: zoomToFeature
+						        // mouseover: highlightFeature,
+						        // mouseout: resetHighlight,
+						        click: selectFeature
 						    });							
 						}
 

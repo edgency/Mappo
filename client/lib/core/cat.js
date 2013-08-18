@@ -131,7 +131,12 @@
 		                 };
                       });
                     return dot;
-                }
+                }	,
+					  rename: function( newName ){
+						modules[ newName ] = modules[name];
+						delete modules.name;
+						name = newName;
+					  }
             };  
         },
       

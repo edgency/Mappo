@@ -13,10 +13,7 @@ Cat.define('search', function(context) {
 	Template.search.events({
 		'click button': function(){
 			console.log('add feature');
-		}/*,
-		'keypress input': function(){
-			console.log('autocomplete');
-		}*/
+		}
 	});
 	
 	Template.search.rendered = function(){

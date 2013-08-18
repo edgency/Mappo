@@ -1,12 +1,5 @@
 Cat.define('feature', function(context, options) {
 	
-    /* Meteor.subscribe( 'features', {
-			onError: function(e){
-				throw 'No collection with name "features" on server side.';
-			}
-	});
-	var Features = new Meteor.Collection('features');*/
-	
 	var Features = Collections.get("features");
 	
 	var SelectedFeature = {

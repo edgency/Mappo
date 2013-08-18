@@ -40,11 +40,7 @@ Meteor.startup(function() {
 		}
 	    
 	});
-	
-	
-	
 
-	
 	Hooks.init();
 	Hooks.onLoggedIn = function () {
 		var user = Meteor.user()._id + '(' + Meteor.user().profile.name + ')';

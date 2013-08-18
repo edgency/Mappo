@@ -30,6 +30,12 @@ Cat.define('map-viewer', function(context) {
 			$('input').on('mouseout', controlLeave);
 			$('textarea').on('mouseover', controlEnter);
 			$('textarea').on('mouseout', controlLeave);
+			
+			return {
+				remove: function(){
+					map.removeControl(control);
+				}
+			};
 		};
 	
 

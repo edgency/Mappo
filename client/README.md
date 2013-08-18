@@ -1,10 +1,13 @@
 
 ## Directory structure
 
-* core, core functionalities to build a user interface
-* modules, plug and play modules
-* main.html, main template
-* main.js, entry point of the application
+- lib
+--- Mappo.js  utility functions
+-- core
+----  cat.js  library for modular applications
+- modules plugins
+main.html  entry point
+main.js  where the structure of the app is built
 
 
 ## Notes
