@@ -46,19 +46,15 @@ Cat.define('mongo-collection', function(context, options) {
 								iconUrl: options.icons(feature.properties),
 								iconSize: [20, 20]
 							});
-							layer.feature = feature;
-							layer.setIcon( icon );
-							// layer.bindPopup( JSON.stringify( feature.properties ) );
-							layer.on({
-						        // mouseover: highlightFeature,
-						        // mouseout: resetHighlight,
-						        click: selectFeature
-						    });							
+							layer.setIcon( icon );						
 						}
-
 					}
 					
 					
+					layer.feature = feature;
+					layer.on({
+				        click: selectFeature
+				    });					
 					group.addLayer(layer);
 				}
 			});
@@ -72,7 +68,7 @@ Cat.define('mongo-collection', function(context, options) {
 			// attempts to convert layer to json
 			var feature = Util.formats.GeoJson.layerToGeometry(item);
 			if ( !feature ){
-				throw 'Cannot add feature ' + JSON.stringigy(item) + '.';
+				throw 'Cannot add feature ' + JSON.stringify(item) + '.';
 			}
 			features.insert(feature);
 		}

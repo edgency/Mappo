@@ -25,7 +25,7 @@ Cat.define('feature', function(context, options) {
 		feature: function(){
 			var featureId = SelectedFeature.getId();
 			var feature = Features.findOne({_id:featureId});
-			if ( feature  )
+			if ( feature && feature.properties  )
 				feature.icon = options.icons( feature.properties );
 			return feature;
 		}

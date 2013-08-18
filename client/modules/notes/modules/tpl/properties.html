@@ -2,15 +2,19 @@
 	
 	{{#if feature}}
 	{{#with feature}}
-	<p>
-		<img src="{{icon}}"/> {{properties.name}}
-	</p>
-	<table class="table table-condensed">
-	  
-	    <tr><td>Lat</td><td>{{geometry.coordinates.[0]}}</td></tr>
-	    <tr><td>Lng</td><td>{{geometry.coordinates.[1]}}</td></tr>
-	  
-	</table>
+		{{#if properties}}
+			<p>
+				<img src="{{icon}}"/> <strong>{{properties.name}}</strong>
+			</p>
+			<table class="table table-condensed">
+	  			<tr><td>Lat</td><td>{{geometry.coordinates.[0]}}</td></tr>
+	    		<tr><td>Lng</td><td>{{geometry.coordinates.[1]}}</td></tr>
+			</table>
+		{{else}}
+			<p>
+				<strong>{{geometry.type}}</strong>
+			</p>
+		{{/if}}
 	{{/with}}
 	{{else}}
 	    No feature selected

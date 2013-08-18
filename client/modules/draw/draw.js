@@ -8,7 +8,10 @@ Cat.define('draw', function(context) {
 
 			// Initialize the draw control and pass it the FeatureGroup of editable layers
 			var drawControl = new L.Control.Draw({
-				 position: 'topleft'
+				 position: 'topleft',
+				 draw:{
+					circle:false
+				}
 			});
 			map.addControl(drawControl);
 			
