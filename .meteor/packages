@@ -13,6 +13,6 @@ standard-app-packages
 moment
 accounts-base
 bootstrap-3
-leaflet
 accounts-facebook
 accounts-ui
+leaflet-0.6.4
