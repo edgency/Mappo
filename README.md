@@ -37,4 +37,4 @@ http://www.gnu.org/licenses/agpl-3.0.html
 
 ## Running example
 
-http://mappo.meteor.com/
+http://mappo.leibnizwheel.it
