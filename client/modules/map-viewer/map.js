@@ -69,9 +69,11 @@ Cat.define('map-viewer', function(context) {
 			//Functions to either disable (onmouseover) or enable (onmouseout) the map's dragging
 			function controlEnter(e) {
 			    map.dragging.disable();
+			    map.doubleClickZoom.disable();
 			}
 			function controlLeave() {
 			    map.dragging.enable();
+			    map.doubleClickZoom.enable();
 			}
 			map.addControl(control);
 			
@@ -81,6 +83,8 @@ Cat.define('map-viewer', function(context) {
 			$('textarea').on('mouseover', controlEnter);
 			$('textarea').on('mouseout', controlLeave);
 			
+			$('.leaflet-control').on('mouseover', controlEnter);
+			$('.leaflet-control').on('mouseout', controlLeave);
 			
 			return {
 				remove: function(){
