@@ -4,10 +4,60 @@
 
 Cat.define('map-viewer', function(context) {
 
-	// create a map
-	var mapId = Math.random().toString(36).substring(7);
-	var el = Template.map({mapId:mapId});
-	var map = null;
+	var mapId = 'map';
+	var map = undefined;
+	var first = true;
+
+	
+	Template.map.rendered = function(){
+		
+		
+		var southWest = new L.LatLng(40.331, 8.536),
+		    northEast = new L.LatLng(50.143, 15.502),
+		    bounds = new L.LatLngBounds(southWest, northEast);
+		
+		if ( ! map )  {
+			map = L.map( this.find('div'), {
+				center: new L.LatLng(46, 11),
+				zoom: 8,
+				attributionControl: true,
+				zoomControl: false,
+				maxBounds: bounds
+			});
+			
+			// Leaflet bug: when a map is recreated _pathRoot and _pathViewport not created
+			if ( ! map._pathRoot){
+				map._initPathRoot();
+			}
+			
+
+			map.addControl( L.control.zoom({position: 'bottomleft'}) )
+
+			map._onResize();
+			map.addPlugin = addPlugin;		
+			
+				context.trigger('ready', map);
+		}
+	
+	
+			
+	
+
+	};
+	
+	Template.map.destroyed = function(){
+		console.log('destroyed');
+		map.remove();
+		$('.map').removeClass('leaflet-container leaflet-fade-anim');
+		map = undefined;
+	};
+	
+	Template.map.created = function(){
+		console.log('created');
+		mapId = 'map';
+	
+
+	};
 	
 	var addPlugin = function( html, options ){
 			var control = L.control( options );
@@ -31,6 +81,7 @@ Cat.define('map-viewer', function(context) {
 			$('textarea').on('mouseover', controlEnter);
 			$('textarea').on('mouseout', controlLeave);
 			
+			
 			return {
 				remove: function(){
 					map.removeControl(control);
@@ -40,43 +91,6 @@ Cat.define('map-viewer', function(context) {
 	
 
 	return {
-		renderTo: function( container ) {
-				container.append( el );
 
-				map = L.map(mapId, {
-					center: new L.LatLng(46, 11),
-					zoom: 8,
-					attributionControl: true,
-					zoomControl: false
-				});
-				map.addControl( L.control.zoom({position: 'bottomeleft'}) )
-
-				map._onResize();
-				map.addPlugin = addPlugin;
-
-				context.trigger('ready', map);				
-			
-
-		},
-		
-		show: function(){
-			map = L.map(mapId, {
-				center: new L.LatLng(46, 11),
-				zoom: 8,
-				attributionControl: true,
-				zoomControl: false
-			});
-			
-				map.addControl( L.control.zoom({position: 'bottomleft'}) )
-
-			map._onResize();
-			map.addPlugin = addPlugin;
-
-			context.trigger('ready', map);
-		},
-
-		html: function(){
-		   return el;
-		}
 	};
 });

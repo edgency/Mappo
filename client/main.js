@@ -5,43 +5,47 @@ Meteor.startup(function() {
 	// see https://github.com/bevanhunt/meteor-leaflet
 	L.Icon.Default.imagePath = 'packages/leaflet/images';
 	
-	var landing = Cat.start( { name:'landing-page'} );
-	var map = Cat.start( 
-				Cat.seq( 
-		          { name:'map-viewer' }, 
-		          Cat.dot(
-					{ name:'map-providers'},
-			        Cat.trace(
-			            Cat.dot(
-				          Cat.trace(
-					        Cat.dot(
-								{ name:'mongo-collection',
-							  	  collection:'features',
-							      icons: Mappo.iconMap },
-							    Cat.dot(
-									{ name:'toolbar'},
-									{ name:'draw'}
-								)
-						     	
-						    ),
-						    ['create']
-					      ),
-						  { name:'notes' }
-				        ), 
-				        ['show', 'hide'] 
-				    )		
-				  )
+	var app = Cat.dot(
+				{ name:'landing-page'} , /* logged out */
+				Cat.seq( /* logged in */
+					  { name:'map-viewer' }, 
+					          Cat.dot(
+								{ name:'map-providers'},
+						        Cat.trace(
+						            Cat.dot(
+							          Cat.trace(
+								        Cat.dot(
+											{ name:'mongo-collection',
+										  	  collection:'features',
+										      icons: Mappo.iconMap },
+										    Cat.dot(
+											    { name:'logo'},
+											    Cat.dot(
+													{ name:'toolbar'},
+													{ name:'draw'}
+												)
+											)
+									    ),
+									    ['create']
+								      ),
+									  { name:'notes' }
+							        ), 
+							        ['show', 'hide'] 
+							    )		
+							  )
 
-			     ));
-	Deps.autorun(
+						     )
+			  );
+    Cat.start( app );		
+	
+	/*Deps.autorun(
 	  function () {
 	    var page = Meteor.userId() == null ? landing.html() : map.html();
 	    $('body').empty().append(page);
 	    if (  Meteor.userId() != null ){
 			map.show();
 		}
-	    
-	});
+	});*/
 
 	/* Hooks.init();
 	Hooks.onLoggedIn = function () {

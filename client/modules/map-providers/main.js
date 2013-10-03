@@ -55,7 +55,7 @@ Cat.define('map-providers', function(context) {
 
 		return {
 			ready: function(map) {
-				map.addLayer(L.tileLayer.provider('OpenStreetMap.DE'));
+				map.addLayer(L.tileLayer.provider('OpenStreetMap'));
 				/* map.addControl(new L.Control.Layers(baseLayers, '', {
 					collapsed: true
 				}));*/

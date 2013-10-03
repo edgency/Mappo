@@ -1,18 +1,16 @@
 <template name="landing">
-  <div id="title">
-   		Mappo
-   </div>
-   <div id="version">
-   		preview 0.1
-   </div>
+<a name="top"></a>
+   
     <!-- Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel">
       <div class="carousel-inner">
         <div class="item active">
-          <img src="map4-compressed.png" alt="">
+          <img class="background" src="map4-compressed.png" alt=""/>
+          <span class="preview">preview 0.1</span>
           <div class="container">
             <div class="carousel-caption">
+		      <img src="logo.png" class="logo" /> 
               <h1>Maps made easy!</h1>
               <p class="lead">Mappo is a new way to build geo apps. Using next generation technologies, it has never been easier to create real time gis. Give a try to this demo to see how to work on maps collaboratively with Mappo.</p>
               <p><!--<a class="btn btn-large btn-primary">Login with Facebook</a>-->
@@ -41,19 +39,21 @@
         <p class="lead">You can track moving objects on a map in real time or display sensor values as they change. There is a great variety of scenarios: from public transport to the Internet of Things.</p>
       </div>
 
+      <div class="featurette">
+        <img class="featurette-image pull-left" src="europe-icon.png">
+        <h2 class="featurette-heading">GeoJSON. <span class="text-muted">Yeah, it is that simple!</span></h2>
+        <p class="lead">No more complicated xml from mapservers. Geometries are just GeoJSon files and we use the advanced spatial capabilities of MongoDB to perform spatial queries.</p>
+      </div>
+
 
       <div class="featurette">
-        <img class="featurette-image  pull-left" src="pin-map-icon-2.png">
+        <img class="featurette-image  pull-right" src="pin-map-icon-2.png">
         <h2 class="featurette-heading">OpenStreetMap. <span class="text-muted">Open your data.</span></h2>
         <p class="lead">OSM geometries are converted into GeoJSon easily. Thus, tons of open data are available for Mappo.</p>
       </div>
 
 
-      <div class="featurette">
-        <img class="featurette-image pull-right" src="europe-icon.png">
-        <h2 class="featurette-heading">GeoJSon. <span class="text-muted">Yeah, it is that simple!</span></h2>
-        <p class="lead">No more complicated xml from mapservers. Geometries are just GeoJSon files and we use the advanced spatial capabilities of MongoDB to perform spatial queries.</p>
-      </div>
+
 
       <div class="featurette">
         <img class="featurette-image  pull-left" src="iphone-5-icon.png">
@@ -71,10 +71,39 @@
       <!-- /END THE FEATURETTES -->
 
 
+	  <div class="col-lg-4">
+		<h2>About me</h2>
+		<p>
+			My name is Marco. I am a freelance programmer based in Italy. 
+			I am interested in Javascript, NoSQL, theoretical CS, biology and macro-economics.
+			My dream is to live on mountains self-producing food and programming Free Software.
+		</p>
+	  </div>
+	  <div class="col-lg-4">
+		<h2>Acknowledgments</h2>
+		<p>
+			Thanks for encouragements and support to Marte, Grigio, Stefano, Roberto and Riccardo.
+		</p>
+		<p>
+			Icons from <a href="http://mapicons.nicolasmollet.com/">Map Icons Collections</a> and <a href="http://www.endlessicons.com/">Endless Icons</a>.
+		</p>
+	  </div>	
+	  <div class="col-lg-4">
+		<h2>Contacts</h2>
+		<p align="left">
+			<span class="glyphicon glyphicon-envelope"></span> marco.stenico (at) gmail.com <br/>
+			<span class="glyphicon glyphicon-phone"></span> +39 3407749219<br/>
+			<span class="glyphicon glyphicon-user"></span> <a href="http://pph.me/mstn">Me on PeoplePerHour</a> <br/>
+			<span class="glyphicon glyphicon-home"></span> <a href="http://blog.leibnizwheel.it">Leibnizwheel blog</a> <br/>
+		</p>
+	  </div>
+
+	
+
       <!-- FOOTER -->
       <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2013 Mappo. &middot; </p>
+        <p class="pull-right"><a href="#top">Back to top</a></p>
+        <p>&copy; 2013 Mappo. </p>
       </footer>
 
     </div><!-- /.container -->	

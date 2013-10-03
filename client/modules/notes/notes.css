@@ -7,3 +7,12 @@
 	height:100px;
 	overflow:hidden;
 }
+
+#wrapper {
+	margin:5px;
+	margin-top:10px;
+}
+
+.note {
+	margin-left:10px;
+}

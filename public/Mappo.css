@@ -37,7 +37,7 @@ body {
 	.carousel .item {
 	  height: 500px;
 	}
-	.carousel img {
+	.carousel .background {
 	  position: absolute;
 	  opacity:0.6; 
 	  top: 0;
@@ -108,28 +108,41 @@ body {
 	  letter-spacing: -1px;
 	}
 
-
-	#title
-	{
+	.crop {
+	    width: 260px;
+	    height: 200px;
+	    overflow: hidden;
+	}
+	
+	.logo {
 	    z-index:100;
-	    position:absolute;    
-	    color:green;
-	    font-size:32px;
-	    font-weight:bold;
-	    left:50px;
-	    top:10px;
+	    position:relative; 
+	    opacity:0.6;   
+	    width:80%;
+	    left:0px;
+	    top:100px;		
+	}
+	
+	.small-logo {
+	    /*z-index:100;*/
+	    width:10%;	
 	}
 
-	#version
+	.preview
 	{
 	    z-index:100;
-	    position:absolute;    
+	    position:relative;    
 	    color:red;
-	    font-size:12px;
-	    left:125px;
-	    top:40px;	
+	    font-size:24px;
+	    top: 100px;
+		left: 800px;
 
 	}
+	
+	.avatar{
+		width:50px;
+	}
+	
 
 
 	/* RESPONSIVE CSS

@@ -1,13 +1,39 @@
 <template name="notes">
+    {{#if hasNotes}}
+    <p>
+		{{countNotes}} notes found.
+	</p>
 	<div id="wrapper">
+		
 	    <div id="content">
-		{{#each notes}}
+
+		  {{#each notes}}
 			{{#with this}}
-				<div class="alert">{{text}}</div>
+			    <div class="row">
+				  <div class="col-md-3">
+				  	<img src="{{author.url}}" alt="{{author.name}}" title="{{author.name}}" class="img-thumbnail avatar">
+				  </div>
+				  <div class="col-md-8">
+					<p>{{text}}</p>
+					<p><small>{{timeAgo createdAt}}</small></p>
+				  </div>
+				</div>
+			    
 			{{/with}}
-		{{/each}}
+		  {{/each}}
+
 	    </div>
+		
 	</div>
-	<a id="scrollUp" href="#">up</a>
-	<a id="scrollDown" href="#">down</a>
+	
+	<ul class="pager pull-right">
+	  <li class="{{hasOlder}}"><a id="scrollDown" href="#">Older</a></li>
+	  <li class="{{hasMoreRecent}}"><a id="scrollUp" href="#">More recent</a></li>
+	</ul>
+
+	{{else}}
+	  <div id="wrapper">
+		<p>No notes. Be the first to add one.</p>
+	  </div>
+	{{/if}}
 </template>

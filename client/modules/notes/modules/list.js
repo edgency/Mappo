@@ -6,6 +6,17 @@ Cat.define('list', function(context) {
 	});
 	var Notes = new Meteor.Collection('notes');	
 	
+	var query = Notes.find({})
+	                 .observe({
+						added: function(note){
+							if ( $('#content').scrollTop() > 0 ){
+								// count unread notes
+								$('#content').scrollTop( $('#content').scrollTop() + 56);
+							}
+						}
+					 });
+	
+	// TODO create a reusable data structure
 	var SelectedFeature = {
 		keys: {},
 		deps: {},
@@ -25,23 +36,30 @@ Cat.define('list', function(context) {
 		}
 	};
 	
-	Template.notes.rendered = function(){
+	var Scroller = {
+		onScroll: function(){
+			this.dep.changed();
+		},
+		getPosition: function(){
+			this.dep.depend();
+			return $('#content').scrollTop();
+		}
+	};
+	Scroller.dep = new Deps.Dependency;
+	
+	Template.notes.preserve({
+	  '#content': function (node) { return node.id; }
+	});
+	
+	Template.notes.rendered = function(  ){
 		var step = 15;
-		var scrolling = false;
-
-		// Wire up events for the 'scrollUp' link:
+		
 		$("#scrollUp").bind("click", function(event) {
 		    event.preventDefault();
-		    // Animates the scrollTop property by the specified
-		    // step.
 		    $("#content").animate({
 		        scrollTop: "-=" + step + "px"
 		    });
-		}).bind("mouseover", function(event) {
-		    scrolling = true;
-		    scrollContent("up");
-		}).bind("mouseout", function(event) {
-		    scrolling = false;
+		    Scroller.onScroll();
 		});
 
 
@@ -50,29 +68,35 @@ Cat.define('list', function(context) {
 		    $("#content").animate({
 		        scrollTop: "+=" + step + "px"
 		    });
-		}).bind("mouseover", function(event) {
-		    scrolling = true;
-		    scrollContent("down");
-		}).bind("mouseout", function(event) {
-		    scrolling = false;
+			Scroller.onScroll();
 		});
-
-		function scrollContent(direction) {
-		    var amount = (direction === "up" ? "-=1px" : "+=1px");
-		    $("#content").animate({
-		        scrollTop: amount
-		    }, 1, function() {
-		        if (scrolling) {
-		            scrollContent(direction);
-		        }
-		    });
-		}		
+	
+	
 	};
+	
 	
 	Template.notes.helpers({
 		notes: function(){
 			var featureId = SelectedFeature.getId();
 			return Notes.find({ featureId:featureId }, {sort: {createdAt: -1}});
+		},
+		hasNotes: function(){
+			var featureId = SelectedFeature.getId();
+			return Notes.find({ featureId:featureId }).count() > 0;
+		},
+		countNotes: function(){
+			var featureId = SelectedFeature.getId();
+			return Notes.find({ featureId:featureId }).count();
+		},
+		timeAgo: function(millisec){
+			return moment( millisec ).fromNow();
+		},
+		hasMoreRecent: function(){
+			return Scroller.getPosition() > 0 ? '': 'disabled';
+		},
+		hasOlder:function(){
+			return true;
+		//	return $("#content").scrollTop() - ?? > 0;
 		}
 	});
 	

@@ -26,6 +26,14 @@ Meteor.startup(function () {
 		    Points.insert(point);
 		  }
 		}); */
+		
+		Accounts.onCreateUser(function(options, user) {
+		    if (options.profile) {
+		        options.profile.url = "http://graph.facebook.com/" + user.services.facebook.id + "/picture/?type=square";
+		        user.profile = options.profile;
+		    }
+		    return user;
+		});
 	
 	
 	Features = new Meteor.Collection("features");

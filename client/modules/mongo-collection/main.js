@@ -26,6 +26,7 @@ Cat.define('mongo-collection', function(context, options) {
 	var group = L.geoJson(null, {
 		onEachFeature:onEachFeature
 	});
+	var _map = undefined;
 	var features;
 	if ( !collectionName ){
 		throw 'You must specify a collection name in mongo-collection module.';
@@ -36,6 +37,7 @@ Cat.define('mongo-collection', function(context, options) {
 	features = Collections.get(collectionName);
 	return {
 		ready: function(map) {
+			_map = map;
 			features.find().observe({
 				added: function(feature, beforeIndex) {
 					var layer = L.GeoJSON.geometryToLayer(feature);
@@ -48,6 +50,7 @@ Cat.define('mongo-collection', function(context, options) {
 							});
 							layer.setIcon( icon );						
 						}
+						
 					}
 					
 					
@@ -56,6 +59,8 @@ Cat.define('mongo-collection', function(context, options) {
 				        click: selectFeature
 				    });					
 					group.addLayer(layer);
+					
+					
 				}
 			});
 			map.addLayer(group);
@@ -63,6 +68,11 @@ Cat.define('mongo-collection', function(context, options) {
 		create: function(item) {
 			if ( Util.formats.GeoJson.isGeoJson( item) ){
 			   features.insert(item);
+			   // TODO apply if insert successful
+			   // TODO meglio disabilitarlo per la demo, altrimenti non si vede la selezione degli altri
+			   // var coords = item.geometry.coordinates;
+			   //	var bounds = new L.LatLngBounds([ new L.LatLng( coords[1], coords[0] )]);
+			   // 	_map.fitBounds(bounds);
 			   return;
 			}
 			// attempts to convert layer to json
@@ -71,6 +81,7 @@ Cat.define('mongo-collection', function(context, options) {
 				throw 'Cannot add feature ' + JSON.stringify(item) + '.';
 			}
 			features.insert(feature);
+			
 		}
 
 	};
