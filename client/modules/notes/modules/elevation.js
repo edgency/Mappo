@@ -12,20 +12,22 @@ Cat.define('elevation', function(context) {
 
    	Template.elevation.rendered = function(){
 		var container = $(this.find('div'));
-		el = L.control.elevation({
-			theme: "lime-theme",
-			width: container.width()
-		});
-		var html = el.onAdd( null );
-		if ( _feature ){
+		if ( _feature && _feature.geometry.type == 'MultiLineString'){
+			el = L.control.elevation({
+				theme: "lime-theme",
+				width: container.width()
+			});
+			var html = el.onAdd( null );			
 			if ( ! hasElevation( _feature) ){
 				context.trigger('elevation', _feature);
 			} else {
 				el.addData(_feature);
 			}
-		
+			container.append( html );
+		} else {
+			el = null;
 		}
-		container.append( html );
+		
 	};
 
 	return {
