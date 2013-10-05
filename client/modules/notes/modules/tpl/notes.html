@@ -23,13 +23,15 @@
 		  {{/each}}
 
 	    </div>
+	
+		<ul class="pager">
+		  <li class="{{hasOlder}}"><a id="scrollDown" href="#">Older</a></li>
+		  <li class="{{hasMoreRecent}}"><a id="scrollUp" href="#">More recent</a></li>
+		</ul>
 		
 	</div>
 	
-	<ul class="pager pull-right">
-	  <li class="{{hasOlder}}"><a id="scrollDown" href="#">Older</a></li>
-	  <li class="{{hasMoreRecent}}"><a id="scrollUp" href="#">More recent</a></li>
-	</ul>
+
 
 	{{else}}
 	  <div id="wrapper">
