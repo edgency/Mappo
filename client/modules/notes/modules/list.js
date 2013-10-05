@@ -108,7 +108,8 @@ Cat.define('list', function(context) {
 		    Notes.insert(note);
 	     },
 	
-	     change: function( featureId ){
+	     change: function( feature ){
+		    var featureId = feature._id;
 			SelectedFeature.setId(featureId);
 	     }
 	};

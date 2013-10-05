@@ -18,13 +18,15 @@ Meteor.startup(function() {
 											{ name:'mongo-collection',
 										  	  collection:'features',
 										      icons: Mappo.iconMap },
-										    Cat.dot(
-											    { name:'logo'},
-											    Cat.dot(
-													{ name:'toolbar'},
-													{ name:'draw'}
-												)
-											)
+											 Cat.dot(
+													    { name:'logo'},
+													    Cat.dot(
+															{ name:'toolbar'},
+															{ name:'draw'}
+														)
+											 )
+											
+										
 									    ),
 									    ['create']
 								      ),

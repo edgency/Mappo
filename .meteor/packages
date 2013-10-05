@@ -16,3 +16,5 @@ bootstrap-3
 accounts-facebook
 accounts-ui
 leaflet-0.6.4
+d3
+leaflet.elevation-0.0.1

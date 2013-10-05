@@ -2,9 +2,11 @@
   "packages": {
     "jquery-ui": {},
     "jquery-ui-bootstrap": {},
-    "event-hooks": {},
     "bootstrap-3": {},
     "moment": {},
-    "leaflet-0.6.4": {}
+    "leaflet-0.6.4": {},
+	"leaflet.elevation-0.0.1" : {
+	      "path": "/Users/marco/Work/Mappo/Leaflet.Elevation"
+	    }
   }
 }

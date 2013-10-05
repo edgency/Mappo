@@ -25,8 +25,13 @@ Cat.define('feature', function(context, options) {
 		feature: function(){
 			var featureId = SelectedFeature.getId();
 			var feature = Features.findOne({_id:featureId});
-			if ( feature && feature.properties  )
-				feature.icon = options.icons( feature.properties );
+			
+			if ( feature ){
+				if ( feature.properties  ){
+					feature.icon = options.icons( feature.properties );
+				}
+				context.trigger('change', feature);
+			}		
 			return feature;
 		}
 	});
@@ -36,7 +41,6 @@ Cat.define('feature', function(context, options) {
 	
 		show: function(featureId){
 			SelectedFeature.setId(featureId );
-			context.trigger('change', featureId);
 		}
 	
 	};
