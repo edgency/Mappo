@@ -12,6 +12,7 @@ Cat.define('map-viewer', function(context) {
 	Template.map.rendered = function(){
 		
 		
+		
 		var southWest = new L.LatLng(40.331, 8.536),
 		    northEast = new L.LatLng(50.143, 15.502),
 		    bounds = new L.LatLngBounds(southWest, northEast);
@@ -53,7 +54,6 @@ Cat.define('map-viewer', function(context) {
 	};
 	
 	Template.map.created = function(){
-		console.log('created');
 		mapId = 'map';
 	
 

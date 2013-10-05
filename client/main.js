@@ -3,7 +3,7 @@ Meteor.startup(function() {
 	
 	// necessary for leaflet smart package
 	// see https://github.com/bevanhunt/meteor-leaflet
-	L.Icon.Default.imagePath = 'packages/leaflet/images';
+	L.Icon.Default.imagePath = 'packages/leaflet-0.6.4/images';
 	
 	var app = Cat.dot(
 				{ name:'landing-page'} , /* logged out */
