@@ -2,7 +2,7 @@
   "packages": {
     "jquery-ui": {},
     "jquery-ui-bootstrap": {},
-    "bootstrap-3": {},
+    "bootstrap-3": "0.3.2",
     "moment": {},
     "leaflet-0.6.4": {},
 	"leaflet.elevation-0.0.1" : {

@@ -61,14 +61,13 @@ Cat.dot(
 			{ name:'feature', icons: Mappo.iconMap },
 			{ name:'insert' }
 		),
-		{ name:'list'}
-		/*Cat.dot(
+		Cat.dot(
 			{ name:'list'},
 			Cat.intc(
 				{ name:'elevation'},
 				{ name:'service' }
 			)
-		)*/
+		)
 	    
 	)
 ).rename('notes');
