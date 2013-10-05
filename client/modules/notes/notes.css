@@ -16,3 +16,33 @@
 .note {
 	margin-left:10px;
 }
+
+.background {
+background-color: rgba(70,130,180,.2);
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+-ms-border-radius: 5px;
+-o-border-radius: 5px;
+border-radius: 5px
+}
+.axis path,.steelblue-theme .leaflet-control.elevation .axis line {
+fill: none;
+stroke: #0d1821;
+stroke-width: 2
+}
+.elevation .area {
+fill: #4682b4
+}
+.elevation .mouse-focus-line {
+pointer-events: none;
+stroke-width: 1;
+stroke: #0d1821
+}
+.steelblue-theme .leaflet-overlay-pane .height-focus {
+stroke: #4682b4;
+fill: #4682b4
+}
+.steelblue-theme .leaflet-overlay-pane .height-focus.line {
+pointer-events: none;
+stroke-width: 2
+}
