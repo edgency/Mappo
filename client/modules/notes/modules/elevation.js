@@ -8,6 +8,7 @@ Cat.define('elevation', function(context) {
 
     var _feature;
     var el;
+    var _map;
 
 
    	Template.elevation.rendered = function(){
@@ -17,7 +18,7 @@ Cat.define('elevation', function(context) {
 				theme: "lime-theme",
 				width: container.width()
 			});
-			var html = el.onAdd( null );			
+			var html = el.onAdd( _map );			
 			if ( ! hasElevation( _feature) ){
 				context.trigger('elevation', _feature);
 			} else {
@@ -42,7 +43,10 @@ Cat.define('elevation', function(context) {
 				el.addData(_feature);
 			}
 			
-		}
+		},
+		ready: function( map ){
+			_map = map; 
+	    }
 
 	};
 });

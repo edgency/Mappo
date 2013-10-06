@@ -60,7 +60,8 @@ Cat.dot(
 		};
 
 	}),
-	Cat.intc(
+	Cat.trace(
+		Cat.dot(
 	    Cat.seq(
 			Cat.dot(
 				{ name:'feature', icons: Mappo.iconMap },
@@ -72,6 +73,7 @@ Cat.dot(
 			)   
 		),
 		{ name:'service'}	
+	   ), ['onElevation', 'elevation']
 	)
 
 ).rename('notes');

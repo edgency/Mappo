@@ -42,8 +42,12 @@ Cat.define('feature', function(context, options) {
 		show: function(featureId){
 			SelectedFeature.setId(featureId );
 		},
+		// TODO ugly, find another way
 		onElevation: function( data ){
 			context.trigger('onElevation', data);
+		},
+		ready: function(map){
+			context.trigger('ready', map);
 		}
 	
 	};
