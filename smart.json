@@ -5,8 +5,6 @@
     "bootstrap-3": "0.3.2",
     "moment": {},
     "leaflet-0.6.4": {},
-	"leaflet.elevation-0.0.1" : {
-	      "path": "/Users/marco/Work/Mappo/Leaflet.Elevation"
-	    }
+	"Leaflet.Elevation" : {}
   }
 }
