@@ -13,7 +13,9 @@ Cat.define('feature', function(context, options) {
 		setId: function(id){
 			this.ensureDeps('id');
 			this.keys['id'] = id;
-			this.deps['id'].changed();
+			this.deps['id'].changed();				
+
+
 		},
 		ensureDeps: function (key) {
 		  if (!this.deps[key])

@@ -38,11 +38,11 @@ pointer-events: none;
 stroke-width: 1;
 stroke: #0d1821
 }
-.steelblue-theme .leaflet-overlay-pane .height-focus {
+.height-focus {
 stroke: #4682b4;
 fill: #4682b4
 }
-.steelblue-theme .leaflet-overlay-pane .height-focus.line {
+.height-focus.line {
 pointer-events: none;
 stroke-width: 2
 }

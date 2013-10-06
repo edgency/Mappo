@@ -2,6 +2,7 @@
 	
 	{{#if feature}}
 	{{#with feature}}
+	    <input type="hidden" value="{{_id}}" /> 
 		{{#if properties}}
 			<p>
 				<img src="{{icon}}"/> <strong>{{properties.name}}</strong>
@@ -13,7 +14,9 @@
 		{{else}}
 			<p>
 				<strong>{{geometry.type}}</strong>
+				
 				{{> elevation}}
+				
 			</p>
 		{{/if}}
 	{{/with}}

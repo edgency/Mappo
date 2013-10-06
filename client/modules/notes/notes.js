@@ -10,14 +10,20 @@ Cat.dot(
 		});
 		
 		Template.editor.rendered = function(){
-			console.log('render editor');
+			// console.log('render editor');
+		};
+		
+		Template.editor.destroyed = function(){
+			// console.log('destroy editor');
 		};
 
 		function close(){
+			Session.set('data', false);
 			if (plugin){
 				plugin.remove();
 				plugin = null;
 			}			
+			
 		};
 		
 		function open(){
