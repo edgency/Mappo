@@ -8,6 +8,10 @@ Cat.dot(
 				close();
 			}
 		});
+		
+		Template.editor.rendered = function(){
+			console.log('render editor');
+		};
 
 		function close(){
 			if (plugin){
@@ -56,18 +60,18 @@ Cat.dot(
 		};
 
 	}),
-    Cat.seq(
-		Cat.dot(
-			{ name:'feature', icons: Mappo.iconMap },
-			{ name:'insert' }
+	Cat.intc(
+	    Cat.seq(
+			Cat.dot(
+				{ name:'feature', icons: Mappo.iconMap },
+				{ name:'insert' }
+			),
+			Cat.dot(
+				{ name:'list'},
+				{ name:'elevation'}
+			)   
 		),
-		Cat.dot(
-			{ name:'list'},
-			Cat.intc(
-				{ name:'elevation'},
-				{ name:'service' }
-			)
-		)
-	    
+		{ name:'service'}	
 	)
+
 ).rename('notes');

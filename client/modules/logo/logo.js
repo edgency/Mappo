@@ -11,7 +11,7 @@ Cat.define('logo', function(context) {
 		ready: function(map) {
     		var options = {position: 'topleft'};
 			map.addPlugin( fragment, options);
-			context.trigger('ready', fragment);
+			// context.trigger('ready', fragment);
 		}
 	
 	};

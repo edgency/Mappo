@@ -1,15 +1,43 @@
 Cat.define('service', function(context) {
     // for doc see https://developers.google.com/maps/documentation/elevation/?csw=1
-    var url = 'http://maps.googleapis.com/maps/api/elevation/json?sensor=false&locations=';
+    var url = 'http://maps.googleapis.com/maps/api/elevation/json?sensor=false&locations=',
+        _map;
     function extractLocations( feature ){
-	   var coords = feature.geometry.coordinates[0];
+	   var latlngs = interpolate( fromCoordsToLatLngs( feature.geometry.coordinates[0] ) );
 	   var result = '';
-	   _.each( coords, function(coord, index){
-			result += coord[1]+',' + coord[0];
-			if ( index < coords.length -1 ){
+	   _.each( latlngs, function(latlng, index){
+			result += parseFloat(latlng.lat).toFixed(3) +',' + parseFloat(latlng.lng).toFixed(3);
+			if ( index < latlngs.length -1 ){
 				result += '|';
 			}
 	   });
+	   return result;
+    };
+
+    function fromCoordsToLatLngs( coords ){
+		return _.map( coords, function( coord ){
+			return new L.LatLng( coord[1], coord[0] );
+		});
+    };
+
+    function segmentLength( latlngs ){
+		var length = 0, i;
+		for ( i=0; i<latlngs.length-1; i++ ){
+			length += latlngs[i].distanceTo( latlngs[i+1] );
+		}
+		return length;
+    };
+
+    function interpolate( latlngs ){
+	   var result = [], 
+	       length = segmentLength( latlngs ),
+	       inc = ( length/100 )/length,
+	       ratio=0;
+	   while ( ratio <= 1 ){
+		 var latlng = L.GeometryUtil.interpolateOnLine(_map, latlngs, ratio).latLng;
+		 result.push( latlng );
+		 ratio += inc;
+	   }
 	   return result;
     };
 
@@ -30,7 +58,11 @@ Cat.define('service', function(context) {
 				}
 			})
 			
-		}
+		},
+		
+	    ready: function( map ){
+			_map = map; 
+	    }
 
 	};
 });

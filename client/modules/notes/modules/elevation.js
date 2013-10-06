@@ -23,8 +23,9 @@ Cat.define('elevation', function(context) {
 			} else {
 				el.addData(_feature);
 			}
-			container.append( html );
+			container.empty().append( html );
 		} else {
+			container.empty();
 			el = null;
 		}
 		

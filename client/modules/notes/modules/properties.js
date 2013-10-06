@@ -41,6 +41,9 @@ Cat.define('feature', function(context, options) {
 	
 		show: function(featureId){
 			SelectedFeature.setId(featureId );
+		},
+		onElevation: function( data ){
+			context.trigger('onElevation', data);
 		}
 	
 	};
